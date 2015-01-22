@@ -34,12 +34,8 @@ class SortTemplate(object):
         """
         return self.__items
 
-    def __getitem__(self, i):
-        """Get a items in the position of i.
-        """
-        return self.items[i]
 
-    def __exchange(self, pos1, pos2):
+    def exchange(self, pos1, pos2):
         """Exchanges the elements between two positions in items.
 
         Helps to record the step of exchanging.
