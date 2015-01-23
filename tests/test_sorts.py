@@ -4,6 +4,7 @@ import random
 
 from sorts.bubble_sort import BubbleSort
 from sorts.insertion_sort import InsertionSort
+from sorts.selection_sort import SelectionSort
 
 
 class SortTestCase(unittest.TestCase):
@@ -50,7 +51,7 @@ class BubbleSortTest(SortTestCase):
 
 
 class InsertionSortTest(SortTestCase):
-    """Tests insertion sort.
+    """Tests the insertion sort.
     """
 
     def test_sort(self):
@@ -70,3 +71,18 @@ class InsertionSortTest(SortTestCase):
         self.collection.shell_sort()
         self.assertEqual(self.collection.items, range(25))
         self.assertEqual(self.collection.is_sorted(), True)
+
+
+class SelectionSortTest(SortTestCase):
+    """Tests the sellection sort.
+    """
+
+    def test_sort(self):
+        """Tests the sort method.
+        Checks the sort method and whether the collection is sorted.
+        """
+        self.collection = SelectionSort(self.collection)
+        self.collection.sort()
+        self.assertEqual(self.collection.items, range(25))
+        self.assertEqual(self.collection.is_sorted(), True)
+
