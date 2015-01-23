@@ -6,8 +6,10 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+.DS_Store
 .Python
 env/
+venv/
 build/
 develop-eggs/
 dist/
