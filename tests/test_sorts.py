@@ -61,3 +61,12 @@ class InsertionSortTest(SortTestCase):
         self.collection.sort()
         self.assertEqual(self.collection.items, range(25))
         self.assertEqual(self.collection.is_sorted(), True)
+
+    def test_shell_sort(self):
+        """Tests the shell sort method.
+        Checks the shell sort method and whether the collection is sorted.
+        """
+        self.collection = InsertionSort(self.collection)
+        self.collection.shell_sort()
+        self.assertEqual(self.collection.items, range(25))
+        self.assertEqual(self.collection.is_sorted(), True)
