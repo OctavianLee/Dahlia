@@ -86,3 +86,11 @@ class SelectionSortTest(SortTestCase):
         self.assertEqual(self.collection.items, range(25))
         self.assertEqual(self.collection.is_sorted(), True)
 
+    def test_quick_sort(self):
+        """Tests the quick sort method.
+        Checks the quick sort method and whether the collection is sorted.
+        """
+        self.collection = SelectionSort(self.collection)
+        self.collection.quick_sort()
+        self.assertEqual(self.collection.items, range(25))
+        self.assertEqual(self.collection.is_sorted(), True)
