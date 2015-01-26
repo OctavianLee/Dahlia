@@ -6,6 +6,7 @@ from sorts.bubble_sort import BubbleSort
 from sorts.insertion_sort import InsertionSort
 from sorts.selection_sort import SelectionSort
 from sorts.merge_sort import MergeSort
+from sorts.pigeonhole_sort import PigeonholeSort
 
 
 class SortTestCase(unittest.TestCase):
@@ -97,7 +98,7 @@ class SelectionSortTest(SortTestCase):
         self.assertEqual(self.collection.is_sorted(), True)
 
 
-class SelectionSortTest(SortTestCase):
+class MergeSortTest(SortTestCase):
     """Tests the merge sort.
     """
 
@@ -106,6 +107,20 @@ class SelectionSortTest(SortTestCase):
         Checks the merge sort method and whether the collection is sorted.
         """
         self.collection = MergeSort(self.collection)
+        self.collection.sort()
+        self.assertEqual(self.collection.items, range(25))
+        self.assertEqual(self.collection.is_sorted(), True)
+
+
+class PigeonholeSortTest(SortTestCase):
+    """Tests the pigeonhole sort.
+    """
+
+    def test_sort(self):
+        """Tests the pigeonhole sort method.
+        Checks the pigeonhole sort method and whether the collection is sorted.
+        """
+        self.collection = PigeonholeSort(self.collection)
         self.collection.sort()
         self.assertEqual(self.collection.items, range(25))
         self.assertEqual(self.collection.is_sorted(), True)
