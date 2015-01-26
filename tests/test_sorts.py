@@ -5,6 +5,7 @@ import random
 from sorts.bubble_sort import BubbleSort
 from sorts.insertion_sort import InsertionSort
 from sorts.selection_sort import SelectionSort
+from sorts.merge_sort import MergeSort
 
 
 class SortTestCase(unittest.TestCase):
@@ -74,7 +75,7 @@ class InsertionSortTest(SortTestCase):
 
 
 class SelectionSortTest(SortTestCase):
-    """Tests the sellection sort.
+    """Tests the selection sort.
     """
 
     def test_sort(self):
@@ -92,5 +93,19 @@ class SelectionSortTest(SortTestCase):
         """
         self.collection = SelectionSort(self.collection)
         self.collection.quick_sort()
+        self.assertEqual(self.collection.items, range(25))
+        self.assertEqual(self.collection.is_sorted(), True)
+
+
+class SelectionSortTest(SortTestCase):
+    """Tests the merge sort.
+    """
+
+    def test_sort(self):
+        """Tests the merge sort method.
+        Checks the merge sort method and whether the collection is sorted.
+        """
+        self.collection = MergeSort(self.collection)
+        self.collection.sort()
         self.assertEqual(self.collection.items, range(25))
         self.assertEqual(self.collection.is_sorted(), True)
