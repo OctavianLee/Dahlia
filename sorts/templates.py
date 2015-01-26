@@ -34,6 +34,11 @@ class SortTemplate(object):
         """
         return self.__items
 
+    @items.setter
+    def items(self, values):
+        """Sets the property of the items.
+        """
+        self.__items = values
 
     def exchange(self, pos1, pos2):
         """Exchanges the elements between two positions in items.
