@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from copy import copy
 
 
 class Arrays(object):
-    """This is a implement of the one-dimension array.
+    """This is a implement of the one-dimensional array.
 
     Temporarily, the class use the List to implement a basic array.
     In the future, it will carry it out with the dictionary for efficiency.
@@ -108,3 +107,56 @@ class Arrays(object):
         """Overloads the __setitem__ method.
         """
         self.__data[self.__get_offset(index)] = value
+
+
+class MultiDimensionalArray(object):
+    """This is a implement of the mutil-dimensional array.
+
+    Attributes:
+        length: integer, the length of the array.
+        data: mutable collection, the data of the array.
+        dimensions: tuple, the length of different dimensions.
+        factor: mutable collection, records the index of array 
+                which reach different bounds.
+
+                For a[2][2], the factor is [2,1].When reaching the a[1][1]
+                it is equal to array[1 * 2 + 1].
+    """
+
+    def __init__(self, *dimensions):
+        """Initializes the class.
+
+        Args:
+            dimensions: tuple, the length of different dimensions.
+        """
+        self.__length = len(dimensions)
+        self.__dimensions = dimensions
+        self.__factors = Array(self.__length)
+        product = 1
+        index = self.__length - 1
+        for i in range(index, 0, -1):
+            self.__factors[i] = product
+            product *= self._dimensions[i]
+        self.__data = Array(product)
+
+    def __get_offset(self, indices):
+        """Gets the offeset of the array.
+        """
+        if len(indices) != self.__length:
+            raise IndexError
+        offset = 0
+        for i, dim in enumerate(self._dimensions):
+            if indices[i] < 0 or indices[i] >= dim: raise IndexError
+            offset += self.__factors[i] * indices[i]
+        return offset
+
+    def __getitem__(self, index):
+        """Overloads the __getitem__ method.
+        """
+        return self.__data[self.__get_offset(index)]
+
+    def __setitem__(self, index, value):
+        """Overloads the __setitem__ method.
+        """
+        self.__data[self.__get_offset(index)] = value
+
