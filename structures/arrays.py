@@ -91,9 +91,9 @@ class MultiDimensionalArray(object):
         self.__factors = Array(self.__length)
         product = 1
         index = self.__length - 1
-        for i in range(index, 0, -1):
+        for i in range(index, -1, -1):
             self.__factors[i] = product
-            product *= self._dimensions[i]
+            product *= self.__dimensions[i]
         self.__data = Array(product)
 
     def __get_offset(self, indices):
@@ -102,18 +102,18 @@ class MultiDimensionalArray(object):
         if len(indices) != self.__length:
             raise IndexError
         offset = 0
-        for i, dim in enumerate(self._dimensions):
+        for i, dim in enumerate(self.__dimensions):
             if indices[i] < 0 or indices[i] >= dim: raise IndexError
             offset += self.__factors[i] * indices[i]
         return offset
 
-    def __getitem__(self, index):
+    def __getitem__(self, indices):
         """Overloads the __getitem__ method.
         """
-        return self.__data[self.__get_offset(index)]
+        return self.__data[self.__get_offset(indices)]
 
-    def __setitem__(self, index, value):
+    def __setitem__(self, indices, value):
         """Overloads the __setitem__ method.
         """
-        self.__data[self.__get_offset(index)] = value
+        self.__data[self.__get_offset(indices)] = value
 
