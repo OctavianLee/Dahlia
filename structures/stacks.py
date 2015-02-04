@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-from abc import ABCMeta, abstractmethod, abstractproperty
+from abc import ABCMeta, abstractmethod
 
 from arrays import Array
 from lists import LinkedList
-
-#from helpers import abstractmethod
 
 
 class Stack(object):

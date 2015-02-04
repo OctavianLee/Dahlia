@@ -133,6 +133,13 @@ class LinkedListTest(StructureTestCase):
         self.assertEqual(self.linkedlist.tail.datum, 2,
                          "Cannot append a datum")
 
+    def test_preappend(self):
+        """Tests to preappend a datum.
+        """
+        self.linkedlist.prepend(2)
+        self.assertEqual(self.linkedlist.head.datum, 2,
+                         "Cannot append a datum")
+
     def test_remove(self):
         """Tests to remove a datum.
         """
