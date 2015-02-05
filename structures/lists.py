@@ -95,6 +95,18 @@ class LinkedList(object):
             self.__tail.next = datum
         self.__tail = datum
 
+    def prepend(self, item):
+        """Preadds a node.
+        
+        Args:
+            item : the item it will preadd.
+        """
+        #Generates the node.
+        datum = Node(item, self.__head)
+        if self.__head is None:
+            self.__tail = datum
+        self.__head = datum
+
     def remove(self, item):
         """removes a node.
         
@@ -116,4 +128,3 @@ class LinkedList(object):
             prepointer.next = pointer.next
         if pointer == self.__tail:
             self.__tail = prepointer
-
