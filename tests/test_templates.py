@@ -2,7 +2,7 @@
 import unittest
 import random
 
-from sorts.templates import SortTemplate
+from dahlia.sorts.templates import SortTemplate
 
 
 class TestSortTemplate(unittest.TestCase):

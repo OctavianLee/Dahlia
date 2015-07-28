@@ -2,11 +2,11 @@
 import unittest
 import random
 
-from sorts.bubble_sort import BubbleSort
-from sorts.insertion_sort import InsertionSort
-from sorts.selection_sort import SelectionSort
-from sorts.merge_sort import MergeSort
-from sorts.pigeonhole_sort import PigeonholeSort
+from dahlia.sorts.bubble_sort import BubbleSort
+from dahlia.sorts.insertion_sort import InsertionSort
+from dahlia.sorts.selection_sort import SelectionSort
+from dahlia.sorts.merge_sort import MergeSort
+from dahlia.sorts.pigeonhole_sort import PigeonholeSort
 
 
 class SortTestCase(unittest.TestCase):
